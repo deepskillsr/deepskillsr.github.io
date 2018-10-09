@@ -1,8 +1,9 @@
 ---
 title: "Welcome to deep R skills workshop!"
-output: html_document
 ---
 
 Hello, Website!
+
+Lots of info info
 
 
