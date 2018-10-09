@@ -1,4 +1,5 @@
 name: "deepRskills"
+output_dir: "."
 navbar:
   title: "deep R skills"
   left:
@@ -6,7 +7,3 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
-output:
-  html_codument:
-  theme: cosmo
-  highlight: textmate
