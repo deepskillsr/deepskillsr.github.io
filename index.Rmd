@@ -1,9 +1,38 @@
 ---
-title: "Welcome to deep R skills workshop!"
+title: ""
+output:
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
-Hello, Website!
 
-Lots of info info
+![](logo.png)
+
+# WELCOME TO THE WORKSHOP HOMEPAGE!
 
 
+## Schedule
+
+**Tuesday**
+
+Introduction
+
+RMarkdown
+
+Knitr
+
+
+**Wednesday**
+
+Best coding practices
+
+Making functions and packages
+
+Create maps
+
+
+**Thursday**
+
+Interactive figures
+
+Q&A session

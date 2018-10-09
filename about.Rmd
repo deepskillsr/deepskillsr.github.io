@@ -1,7 +1,65 @@
 ---
-title: "About This Website"
+title: ""
+output:
+  rmarkdown::html_document:
+    theme: cosmo
 ---
 
-This is so far a test website
+![](logo.png)
 
-more info ect..
+# About the workshop
+
+**Dates:** November 13-14-15, 2018
+
+**Where:** room to be confirmed
+
+
+##Topics
+
+- Reproducible research with RMarkdown
+
+- Wonders of knitr
+
+- Best coding practices in R
+
+- Producing maps with R using ggmap
+
+- Interactive figures with plotly, ggplotly and shiny
+
+
+## Workshop objectives
+
+1. Develop a clear, organised and structured workflow in R to better collaborate, ensure reproducible research and facilitate code formatting for publication.
+
+2. Produce attractive maps and interactive figures in R to convey your results clearly to peers, online, in a presentation or in a publication.
+
+The statistical program R is a free, open-source, powerful tool that is constantly under development by an active international community. An increasingly growing proportion of the scientific community is using R, not only for data analysis but also for data visualisation, producing reports and presentations.
+
+This workshop presents how to develop an efficient and organised workflow, structured data cleaning and analyses, to help yourself and others to understand and read your code clearly. We will do so by using RMarkdown, the package knitr and showing how to write your own functions. The workshop also covers how to produce maps with ggmap and interactive figures with ggplotly, using the grammar of graphics to understand the underlying principles of data visualisation packages in R. In addition, to help communicate your science, we will build interactive web apps allowing users to interact with your data and your analysis directly from R and shiny.
+
+**At the end of this three day workshop, participants will be able to:**
+
+1. Understand and produce coding reports in suitable format to keep a safe history of workflow in R
+
+2. Present data in the form of maps, interactive figures and web apps using R
+
+## Structure of the course
+
+• Introductory presentations for each topic and related packages
+
+• After each presentation, there will be hands-on exercises to practice with biological data and newly learned functions
+
+• Time to work on the exercises will be allocated during the workshop and teaching assistants will be available to answer questions to help participants progress during the exercises
+
+• A session for Questions & Answers is planned on the afternoon of the third day for questions related to the exercises or involving participants’ own data.
+
+## Participants requirement
+
+• Participants should be comfortable with writing basic code in R, installing packages, loading data sets, and producing basic plots. This course is to expand your tool box using R
+
+• Bring your laptop with R version 3.4.3 or newer and RStudio version 1.1.383 or newer installed
+
+• The workshop is open to MSc and PhD students, postdocs and faculty members, with priority to PhD students.
+
+## Schedule
+We will start each day at 09:00 and work till lunch at 12:00 with a coffee break in the middle. At 13:15 we will return to our classroom and work till 17:00 with coffee break in the middle.
