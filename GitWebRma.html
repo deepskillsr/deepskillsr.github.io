@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Git, Website and Presentation in RMarkdown</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Marco Fracassetti" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <link href="libs/leaflet/leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet/leaflet.js"></script>
+    <link href="libs/leafletfix/leafletfix.css" rel="stylesheet" />
+    <script src="libs/Proj4Leaflet/proj4-compressed.js"></script>
+    <script src="libs/Proj4Leaflet/proj4leaflet.js"></script>
+    <link href="libs/rstudio_leaflet/rstudio_leaflet.css" rel="stylesheet" />
+    <script src="libs/leaflet-binding/leaflet.js"></script>
+    <link rel="stylesheet" href="presentation_noLogo.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Git, Website and Presentation in RMarkdown
+### Marco Fracassetti
+### Developing skills in R workshop 13/11/2018
+
+---
+
+
+
+
+background-image: url(http://www.stockholmresilience.org/images/18.36c25848153d54bdba3421f1/1466170582764/su-Agneta-Hollstrom.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+##Given at Stockholm University!
+
+---
+
+class: center, middle
+#What is Git?
+
+---
+##GIT - the stupid content tracker&lt;sup&gt;1&lt;/sup&gt;
+
+"git" can mean anything, depending on your mood.
+--
+
+- random three-letter combination that is pronounceable, and not actually used by any common UNIX command.  The fact that it is a mispronounciation of "get" may or may not be relevant.
+
+--
+
+- stupid. contemptible and despicable. simple. Take your pick from the dictionary of slang.
+
+--
+- "global information tracker": you're in a good mood, and it actually works for you. Angels sing, and a light suddenly fills the room.
+
+--
+
+- "goddamn idiotic truckload of sh*t": when it breaks.
+
+&lt;br /&gt;
+&lt;br /&gt;
+
+.footnote[
+[1]From the original [README](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README) written by [Linus Torvalds](https://it.wikipedia.org/wiki/Linus_Torvalds)  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg/440px-LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg" alt="ppp" style="max-height:200px;"&gt; 
+]
+---
+
+&lt;img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/02-desktop-gui/04-remote-repositories/01-introduction/basic-remote-workflow.png" alt="ppp" style="max-height:550px;"&gt;
+
+
+from [git-tower ebook](https://www.git-tower.com/learn/git/ebook/en/desktop-gui/remote-repositories/introduction#start)
+
+---
+##Create a new repository
+Enter in your [github account](https://github.com/login). Click `Repositories-&gt;New`
+--
+
+##Git commands
+
+```bash
+#the repo is copied from the remote repository
+git clone https://github.com/GH_name/cloned_repo
+```
+
+--
+
+
+```bash
+#Add a file to the staging area
+git add &lt;FILENAME&gt;
+git add * #add al the file in the dir
+#commit the changes to the local repository
+git commit -m "first commit"
+#push the changes to the remote repository
+git push
+```
+
+--
+
+
+```bash
+#to update your local repo with the latest commit
+git pull
+```
+
+--
+
+
+```bash
+##git information about the commit
+git status
+```
+
+---
+##Create a new branch
+
+```bash
+#create a new branch named "new_feature" and switch to it using
+git branch new_feature
+git checkout new_feature
+git add mod_file.txt
+git commit -m 'in new_feature'
+#push the new branch to remote repository
+git push origin new_feature
+```
+
+&lt;img src="https://wac-cdn.atlassian.com/dam/jcr:746be214-eb99-462c-9319-04a4d2eeebfa/01.svg?cdnVersion=kl" alt="ppp" style="max-height:370px;"&gt;
+
+from [atlassian](https://www.atlassian.com/git/tutorials/using-branches)
+
+---
+##Merge two branch
+
+```bash
+# switch back to master
+git checkout master
+#merge the branch new_feature in the branch master
+git merge new_feature
+#now you can delete the branch new_feature
+git branch -d feature_x
+```
+
+&lt;img src="https://wac-cdn.atlassian.com/dam/jcr:83323200-3c57-4c29-9b7e-e67e98745427/Branch-1.png?cdnVersion=kl" alt="ppp" style="max-height:350px;"&gt;
+
+from [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+
+---
+&lt;img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/11/Git-Architechture-Git-Tutorial-Edureka-2-768x720.png" alt="ppp" style="max-height:550px;"&gt;
+
+from [edureka](https://www.edureka.co/blog/git-tutorial/)
+
+---
+class: center, middle
+
+# How to do a static website with R?
+
+---
+##RMarkdown website&lt;sup&gt;1&lt;/sup&gt;
+
+- Login in your [github account](https://github.com/login)
+
+--
+
+- Create a new repository named Your_GH_Name.github.io
+
+--
+
+- Inizialize It with a README
+
+--
+
+- Clone the repository on your notebook
+
+--
+
+- Open RStudio and create a R Project `File -&gt; New Project` in the same directory of the cloned repository
+
+--
+
+- Create two files: **_site.yml** and **index.Rmd**
+
+.footnote[
+[1]More info [here](http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html#r_markdown_website_basics) 
+]
+
+.pull-left-50[
+Example _site.yml:
+
+```bash
+name: "my-website"
+navbar:
+  title: "My Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Second Page"
+      href: second_page.html
+```
+]
+
+.pull-right-50[
+Example index.Rmd:
+
+```bash
+
+---
+title: "Bla Bla"
+---
+
+This is my RMarkdown Website.
+
+```
+]
+
+---
+##Rmarkdown website
+
+- Close and re-open the R project.
+&lt;br /&gt;
+&lt;br /&gt;
+--
+
+- Build the website `Build -&gt; Build all`
+&lt;br /&gt;
+&lt;br /&gt;
+--
+
+- Upload all on Github
+&lt;br /&gt;
+&lt;br /&gt;
+
+```bash
+
+cd Your_GH_Name.github.io
+git add *
+git commit -m "upload_my_website"
+git push 
+```
+&lt;br /&gt;
+&lt;br /&gt;
+--
+
+- The Website is ready at the URL Your_GH_Name.github.io.
+
+---
+class: center, middle
+
+# How to do a presentation with R?
+
+---
+- Install the **xaringan** package developed by [Yihui Xie](https://yihui.name/)
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/42023922872cca83b20851f15088d1fd4236d084/e41a8/images/logo.png" alt="ppp" style="max-height:300px;"&gt;&lt;sup&gt;1&lt;/sup&gt;:
+
+
+```r
+install.packages('xaringan')
+```
+
+--
+
+
+- Create a new R Markdown document from the menu `File -&gt; New File -&gt; R Markdown -&gt; From Template -&gt; Ninja Presentation`.
+
+--
+
+- Click the `Knit` button to compile it.
+
+--
+
+- Open your presentation in the Web browser.
+
+--
+
+- or install the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)&lt;sup&gt;2&lt;/sup&gt; "Infinite Moon Reader" to live preview the slides in RStudio Viewer.
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+
+.footnote[
+[1] From which I took a lot of material to do this presentation.
+
+[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+]
+
+---
+##How it works
+
+- The RMarkdown is processed by [knitr](https://yihui.name/knitr/)&lt;sup&gt;1&lt;/sup&gt; and the slides are rendered in the web browser by the [remark.js](https://remarkjs.com) library.
+
+--
+
+##Simpler version
+
+
+-It is RMarkdown code.
+
+--
+
+- Each slide is separated by `---`;
+
+--
+
+- To make a list use `-` before each item (remember the space before the first char);
+
+--
+
+- To make appear one item by one separate them by `--`;
+
+--
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+
+.footnote[
+[1]Also this package has been developed by  [Yihui Xie](https://yihui.name/)&lt;img src="https://d33wubrfki0l68.cloudfront.net/42023922872cca83b20851f15088d1fd4236d084/e41a8/images/logo.png" alt="ppp" style="max-height:300px;"&gt;.
+]
+
+---
+
+# LaTex Math Expressions
+
+You can write LaTeX math expressions inside a pair of dollar signs, e.g. &amp;#36;\alpha+\beta$ renders `\(\alpha+\beta\)`. You can use the display style with double dollar signs:
+
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+
+```
+$$\theta_W=\frac{S}{\sum_{i=1}^{n-1}\frac{1}i}$$
+```
+
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+
+`$$\theta_W=\frac{S}{\sum_{i=1}^{n-1}\frac{1}i}$$`
+
+---
+#R Codes and Plots
+
+
+```r
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
+```
+
+```
+##               Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept) -17.579095  6.7584402 -2.601058 1.231882e-02
+## speed         3.932409  0.4155128  9.463990 1.489836e-12
+```
+
+```r
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+![](GitWebRma_files/figure-html/cars-1.svg)&lt;!-- --&gt;
+
+---
+#Not only R language
+Python
+
+```python
+print "Ciao!"
+```
+
+```
+## Ciao!
+```
+
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+
+Bash
+
+```bash
+echo "Ciao!"
+```
+
+```
+## Ciao!
+```
+---
+
+# Tables
+
+If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+
+
+```r
+knitr::kable(head(iris), format = 'html')
+```
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:right;"&gt; Sepal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sepal.Width &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal.Length &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Petal.Width &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Species &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.0 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:right;"&gt; 5.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.7 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; setosa &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# HTML Widgets
+
+What are them?  [http://www.htmlwidgets.org](http://www.htmlwidgets.org)
+
+--
+
+
+```r
+library(leaflet)
+leaflet() %&gt;% addTiles() %&gt;% setView(18.060733, 59.366379, zoom = 15)
+```
+
+<div id="htmlwidget-a163f166ad630c51e550" style="width:100%;height:288px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a163f166ad630c51e550">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]}],"setView":[[59.366379,18.060733],15,[]]},"evals":[],"jsHooks":[]}</script>
+
+---
+
+# Some Tips
+
+- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay: 30000
+    ```
+
+--
+
+- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          countdown: 60000
+    ```
+
+    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
+    
+---
+
+##Themes and CSS
+
+In the YAML section you can specify your favorite [CSS file](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) or use some pre-build themes:
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: [default, "my_favorite.css", metropolis-fonts]
+```
+
+List of the themes:
+
+```r
+names(xaringan:::list_css())
+```
+
+```
+##  [1] "chocolate-fonts"  "chocolate"        "default-fonts"   
+##  [4] "default"          "duke-blue"        "hygge-duke"      
+##  [7] "hygge"            "kunoichi"         "lucy-fonts"      
+## [10] "lucy"             "metropolis-fonts" "metropolis"      
+## [13] "middlebury-fonts" "middlebury"       "ninjutsu"        
+## [16] "rladies-fonts"    "rladies"          "robot-fonts"     
+## [19] "robot"            "rutgers-fonts"    "rutgers"         
+## [22] "shinobi"          "tamu-fonts"       "tamu"            
+## [25] "uo-fonts"         "uo"
+```
+
+---
+
+#Thanks for the listening
+For the exercise go to [The R Inferno](https://github.com/TheRInferno/TheRInferno.github.io) and follow the instruction.
+##References
+
+- Git:
+
+[official website](https://git-scm.com/)
+[simple guide](http://rogerdudler.github.io/git-guide/)
+[HappyGitWithR](http://happygitwithr.com/)
+
+- Some websites done with Rmarkdown:
+
+[site1](http://www.emilyzabor.com/)
+[site2](https://ankargren.github.io/)
+
+- Xaringan presentation:
+
+[Yihui Xie Website](https://yihui.name/)
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,432 @@
+---
+title: "Git, Website and Presentation in RMarkdown"
+author: "Marco Fracassetti"
+date: "Developing skills in R workshop 13/11/2018"
+output:
+  xaringan::moon_reader:
+    css: 'presentation_noLogo.css'
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+background-image: url(http://www.stockholmresilience.org/images/18.36c25848153d54bdba3421f1/1466170582764/su-Agneta-Hollstrom.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+##Given at Stockholm University!
+
+---
+
+class: center, middle
+#What is Git?
+
+---
+##GIT - the stupid content tracker<sup>1</sup>
+
+"git" can mean anything, depending on your mood.
+--
+
+- random three-letter combination that is pronounceable, and not actually used by any common UNIX command.  The fact that it is a mispronounciation of "get" may or may not be relevant.
+
+--
+
+- stupid. contemptible and despicable. simple. Take your pick from the dictionary of slang.
+
+--
+- "global information tracker": you're in a good mood, and it actually works for you. Angels sing, and a light suddenly fills the room.
+
+--
+
+- "goddamn idiotic truckload of sh*t": when it breaks.
+
+<br />
+<br />
+
+.footnote[
+[1]From the original [README](https://github.com/git/git/blob/e83c5163316f89bfbde7d9ab23ca2e25604af290/README) written by [Linus Torvalds](https://it.wikipedia.org/wiki/Linus_Torvalds)  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg/440px-LinuxCon_Europe_Linus_Torvalds_03_%28cropped%29.jpg" alt="ppp" style="max-height:200px;"> 
+]
+---
+
+<img src="https://www.git-tower.com/learn/content/01-git/01-ebook/en/02-desktop-gui/04-remote-repositories/01-introduction/basic-remote-workflow.png" alt="ppp" style="max-height:550px;">
+
+
+from [git-tower ebook](https://www.git-tower.com/learn/git/ebook/en/desktop-gui/remote-repositories/introduction#start)
+
+---
+##Create a new repository
+Enter in your [github account](https://github.com/login). Click `Repositories->New`
+--
+
+##Git commands
+```{bash, eval=F}
+#the repo is copied from the remote repository
+git clone https://github.com/GH_name/cloned_repo
+```
+
+--
+
+```{bash, eval=F}
+#Add a file to the staging area
+git add <FILENAME>
+git add * #add al the file in the dir
+#commit the changes to the local repository
+git commit -m "first commit"
+#push the changes to the remote repository
+git push
+```
+
+--
+
+```{bash, eval=F}
+#to update your local repo with the latest commit
+git pull
+```
+
+--
+
+```{bash, eval=F}
+##git information about the commit
+git status
+```
+
+---
+##Create a new branch
+```{bash, eval=F}
+#create a new branch named "new_feature" and switch to it using
+git branch new_feature
+git checkout new_feature
+git add mod_file.txt
+git commit -m 'in new_feature'
+#push the new branch to remote repository
+git push origin new_feature
+```
+
+<img src="https://wac-cdn.atlassian.com/dam/jcr:746be214-eb99-462c-9319-04a4d2eeebfa/01.svg?cdnVersion=kl" alt="ppp" style="max-height:370px;">
+
+from [atlassian](https://www.atlassian.com/git/tutorials/using-branches)
+
+---
+##Merge two branch
+```{bash, eval=F}
+# switch back to master
+git checkout master
+#merge the branch new_feature in the branch master
+git merge new_feature
+#now you can delete the branch new_feature
+git branch -d feature_x
+```
+
+<img src="https://wac-cdn.atlassian.com/dam/jcr:83323200-3c57-4c29-9b7e-e67e98745427/Branch-1.png?cdnVersion=kl" alt="ppp" style="max-height:350px;">
+
+from [atlassian](https://www.atlassian.com/git/tutorials/using-branches/git-merge)
+
+---
+<img src="https://d1jnx9ba8s6j9r.cloudfront.net/blog/wp-content/uploads/2016/11/Git-Architechture-Git-Tutorial-Edureka-2-768x720.png" alt="ppp" style="max-height:550px;">
+
+from [edureka](https://www.edureka.co/blog/git-tutorial/)
+
+---
+class: center, middle
+
+# How to do a static website with R?
+
+---
+##RMarkdown website<sup>1</sup>
+
+- Login in your [github account](https://github.com/login)
+
+--
+
+- Create a new repository named Your_GH_Name.github.io
+
+--
+
+- Inizialize It with a README
+
+--
+
+- Clone the repository on your notebook
+
+--
+
+- Open RStudio and create a R Project `File -> New Project` in the same directory of the cloned repository
+
+--
+
+- Create two files: **_site.yml** and **index.Rmd**
+
+.footnote[
+[1]More info [here](http://www.emilyzabor.com/tutorials/rmarkdown_websites_tutorial.html#r_markdown_website_basics) 
+]
+
+.pull-left-50[
+Example _site.yml:
+```{bash, eval=F}
+name: "my-website"
+navbar:
+  title: "My Website"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Second Page"
+      href: second_page.html
+```
+]
+
+.pull-right-50[
+Example index.Rmd:
+```{bash, eval=F}
+
+---
+title: "Bla Bla"
+---
+
+This is my RMarkdown Website.
+
+```
+]
+
+---
+##Rmarkdown website
+
+- Close and re-open the R project.
+<br />
+<br />
+--
+
+- Build the website `Build -> Build all`
+<br />
+<br />
+--
+
+- Upload all on Github
+<br />
+<br />
+```{bash, eval=F}
+
+cd Your_GH_Name.github.io
+git add *
+git commit -m "upload_my_website"
+git push 
+```
+<br />
+<br />
+--
+
+- The Website is ready at the URL Your_GH_Name.github.io.
+
+---
+class: center, middle
+
+# How to do a presentation with R?
+
+---
+- Install the **xaringan** package developed by [Yihui Xie](https://yihui.name/)
+<img src="https://d33wubrfki0l68.cloudfront.net/42023922872cca83b20851f15088d1fd4236d084/e41a8/images/logo.png" alt="ppp" style="max-height:300px;"><sup>1</sup>:
+
+```{r eval=FALSE, tidy=FALSE}
+install.packages('xaringan')
+```
+
+--
+
+
+- Create a new R Markdown document from the menu `File -> New File -> R Markdown -> From Template -> Ninja Presentation`.
+
+--
+
+- Click the `Knit` button to compile it.
+
+--
+
+- Open your presentation in the Web browser.
+
+--
+
+- or install the [RStudio Addin](https://rstudio.github.io/rstudioaddins/)<sup>2</sup> "Infinite Moon Reader" to live preview the slides in RStudio Viewer.
+
+<br />
+<br />
+<br />
+
+.footnote[
+[1] From which I took a lot of material to do this presentation.
+
+[2] See [#2](https://github.com/yihui/xaringan/issues/2) if you do not see the template or addin in RStudio.
+]
+
+---
+##How it works
+
+- The RMarkdown is processed by [knitr](https://yihui.name/knitr/)<sup>1</sup> and the slides are rendered in the web browser by the [remark.js](https://remarkjs.com) library.
+
+--
+
+##Simpler version
+
+
+-It is RMarkdown code.
+
+--
+
+- Each slide is separated by `---`;
+
+--
+
+- To make a list use `-` before each item (remember the space before the first char);
+
+--
+
+- To make appear one item by one separate them by `--`;
+
+--
+
+<br />
+<br />
+<br />
+
+.footnote[
+[1]Also this package has been developed by  [Yihui Xie](https://yihui.name/)<img src="https://d33wubrfki0l68.cloudfront.net/42023922872cca83b20851f15088d1fd4236d084/e41a8/images/logo.png" alt="ppp" style="max-height:300px;">.
+]
+
+---
+
+# LaTex Math Expressions
+
+You can write LaTeX math expressions inside a pair of dollar signs, e.g. &#36;\alpha+\beta$ renders $\alpha+\beta$. You can use the display style with double dollar signs:
+
+
+<br />
+<br />
+<br />
+
+```
+$$\theta_W=\frac{S}{\sum_{i=1}^{n-1}\frac{1}i}$$
+```
+
+
+<br />
+<br />
+<br />
+
+$$\theta_W=\frac{S}{\sum_{i=1}^{n-1}\frac{1}i}$$
+
+---
+#R Codes and Plots
+
+```{r cars, fig.height=2, dev='svg'}
+fit = lm(dist ~ 1 + speed, data = cars)
+coef(summary(fit))
+par(mar = c(4, 4, 1, .1))
+plot(cars, pch = 19, col = 'darkgray', las = 1)
+abline(fit, lwd = 2)
+```
+
+---
+#Not only R language
+Python
+```{python}
+print "Ciao!"
+```
+
+<br />
+<br />
+<br />
+
+Bash
+```{bash}
+echo "Ciao!"
+```
+---
+
+# Tables
+
+If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,
+
+```{r}
+knitr::kable(head(iris), format = 'html')
+```
+
+---
+# HTML Widgets
+
+What are them?  [http://www.htmlwidgets.org](http://www.htmlwidgets.org)
+
+--
+
+```{r out.width='100%', fig.height=4, eval=require('leaflet')}
+library(leaflet)
+leaflet() %>% addTiles() %>% setView(18.060733, 59.366379, zoom = 15)
+```
+
+---
+
+# Some Tips
+
+- Slides can be automatically played if you set the `autoplay` option under `nature`, e.g. go to the next slide every 30 seconds in a lightning talk:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          autoplay: 30000
+    ```
+
+--
+
+- A countdown timer can be added to every page of the slides using the `countdown` option under `nature`, e.g. if you want to spend one minute on every page when you give the talk, you can set:
+
+    ```yaml
+    output:
+      xaringan::moon_reader:
+        nature:
+          countdown: 60000
+    ```
+
+    Then you will see a timer counting down from `01:00`, to `00:59`, `00:58`, ... When the time is out, the timer will continue but the time turns red.
+    
+---
+
+##Themes and CSS
+
+In the YAML section you can specify your favorite [CSS file](https://en.wikipedia.org/wiki/Cascading_Style_Sheets) or use some pre-build themes:
+
+```yaml
+output:
+  xaringan::moon_reader:
+    css: [default, "my_favorite.css", metropolis-fonts]
+```
+
+List of the themes:
+```{r}
+names(xaringan:::list_css())
+```
+
+---
+
+#Thanks for the listening
+For the exercise go to [The R Inferno](https://github.com/TheRInferno/TheRInferno.github.io) and follow the instruction.
+##References
+
+- Git:
+
+[official website](https://git-scm.com/)
+[simple guide](http://rogerdudler.github.io/git-guide/)
+[HappyGitWithR](http://happygitwithr.com/)
+
+- Some websites done with Rmarkdown:
+
+[site1](http://www.emilyzabor.com/)
+[site2](https://ankargren.github.io/)
+
+- Xaringan presentation:
+
+[Yihui Xie Website](https://yihui.name/)
