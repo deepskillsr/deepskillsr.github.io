@@ -6,7 +6,7 @@ output:
 ---
 
 
-![](Webpage/coding.png)
+![](Webpage/logo.png)
 
 # WELCOME TO THE WORKSHOP HOMPAGE!
 
@@ -64,8 +64,7 @@ output:
 14.30 - inf.    Coffee
 
 
-### Everything on this website was coded in R. Check out how: 
-github.com/deepskillsr/deepskillsr.github.io
+**Everything on this website was coded in R.** [**Check out how**](https://github.com/deepskillsr/deepskillsr.github.io)
 
 
 
