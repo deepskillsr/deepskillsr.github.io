@@ -6,7 +6,7 @@ output:
 ---
 
 
-![](logo.png)
+![](coding.png)
 
 # WELCOME TO THE WORKSHOP HOMEPAGE!
 
@@ -36,3 +36,6 @@ Create maps
 Interactive figures
 
 Q&A session
+
+
+
