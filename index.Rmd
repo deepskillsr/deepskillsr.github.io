@@ -24,7 +24,7 @@ RMarkdown
 
 **Wednesday**
 
-Best coding practices
+[Good coding practices](https://deepskillsr.github.io/Pres_good_coding_practices_MLT.html)
 
 Making functions and packages
 
