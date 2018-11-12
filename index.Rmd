@@ -19,7 +19,7 @@ Introduction
 
 RMarkdown
 
-Knitr
+[Git, Website and Presentation in RMarkdown](https://deepskillsr.github.io/GitWebRma.html)
 
 
 **Wednesday**
