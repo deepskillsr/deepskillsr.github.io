@@ -8,34 +8,60 @@ output:
 
 ![](coding.png)
 
-# WELCOME TO THE WORKSHOP HOMEPAGE!
+# WELCOME TO THE WORKSHOP HOMPAGE!
 
 
-## Schedule
+## Schedule and course materials
 
 **Tuesday**
 
-Introduction
+9.00 - 9.30     Introduction to the workshop by Malie
 
-RMarkdown
+9.30 - 10.30    RMarkdown by Elsa, TA: Julie, Malie
 
-[Git, Website and Presentation in RMarkdown](https://deepskillsr.github.io/GitWebRma.html)
+10.30 - 11:00   Coffee break
 
+11.00 - 12.00   RMarkdown ctd.
+
+12.00 - 13.00   Lunch
+
+13.00 - 14.30   [Git, Website and Presentation in RMarkdown](https://deepskillsr.github.io/GitWebRma.html) by Marco, TA: Julie, Malie
+
+14.30 - 15.00   Coffee break
+
+15.00 - 17.00   Good coding practices by Malie, TA: Andreas
 
 **Wednesday**
 
-Best coding practices
+9.00 - 10.30    Functions and wrappers by Andreas, TA: Malie
 
-Making functions and packages
+10.30 - 11.00   Coffee break
 
-Create maps
+11.00 - 12.00   Rpackages to share data and code by Andreas, TA: Malie
 
+12.00 - 13.00   Lunch
+
+13.00 - 14.30   Ggmap by Malie, TA: Julie
+
+14.30 - 15.00   Coffee break
+
+15.00 - 16.15   Ggmap ctd.
 
 **Thursday**
 
-Interactive figures
+9.00 - 10.30    Interactive figures (plotly, shiny etc.) by Andreas, TA: Julie and Malie
 
-Q&A session
+10.30 - 11.00   Coffee break
+
+11.00 - 11.30   Interactive figures ctd.
+
+11.30 - 12.00   Feedback sheets fill up
+
+12.00 - 13.00   Lunch
+
+13.00 - 14.30   Q&A, Finishing excercis, backup time, Malie, Andreas, Marco and Elsa.
+
+14.30 - inf.    Coffee
 
 
 
