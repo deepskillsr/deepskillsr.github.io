@@ -29,7 +29,7 @@ output:
 
 14.30 - 15.00   Coffee break
 
-15.00 - 17.00   [Good coding practices](Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas
+15.00 - 17.00   [Good coding practices](MaliesFiles/Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas
 
 **Wednesday**
 
@@ -41,7 +41,7 @@ output:
 
 12.00 - 13.00   Lunch
 
-13.00 - 14.30   Ggmap by Malie, TA: Julie
+13.00 - 14.30   [Maps in R](MaliesFiles/Maps_in_R_MLT.html) by Malie, TA: Julie
 
 14.30 - 15.00   Coffee break
 
@@ -55,7 +55,7 @@ output:
 
 11.00 - 11.30   Interactive figures ctd.
 
-11.30 - 12.00   Feedback sheets fill up
+11.30 - 12.00   [Feedback sheets fill up](MaliesFiles/Feedback.Rpres)
 
 12.00 - 13.00   Lunch
 
