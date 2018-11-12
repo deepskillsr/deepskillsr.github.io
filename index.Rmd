@@ -25,11 +25,11 @@ output:
 
 12.00 - 13.00   Lunch
 
-13.00 - 14.30   [Git, Website and Presentation in RMarkdown](https://deepskillsr.github.io/GitWebRma.html) by Marco, TA: Julie, Malie
+13.00 - 14.30   [Git, Website and Presentation in RMarkdown](GitWebRma.html) by Marco, TA: Julie, Malie
 
 14.30 - 15.00   Coffee break
 
-15.00 - 17.00   Good coding practices by Malie, TA: Andreas
+15.00 - 17.00   [Good coding practices](Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas
 
 **Wednesday**
 
