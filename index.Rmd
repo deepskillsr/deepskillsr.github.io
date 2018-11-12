@@ -6,7 +6,7 @@ output:
 ---
 
 
-![](coding.png)
+![](Webpage/coding.png)
 
 # WELCOME TO THE WORKSHOP HOMPAGE!
 
@@ -25,7 +25,7 @@ output:
 
 12.00 - 13.00   Lunch
 
-13.00 - 14.30   [Git, Website and Presentation in RMarkdown](GitWebRma.html) by Marco, TA: Julie, Malie
+13.00 - 14.30   [Git, Website and Presentation in RMarkdown](MarcosFiles/GitWebRma.html) by Marco, TA: Julie, Malie
 
 14.30 - 15.00   Coffee break
 
@@ -62,6 +62,12 @@ output:
 13.00 - 14.30   Q&A, Finishing excercis, backup time, Malie, Andreas, Marco and Elsa.
 
 14.30 - inf.    Coffee
+
+
+### Everything on this website was coded in R. Check out how: 
+github.com/deepskillsr/deepskillsr.github.io
+
+
 
 
 

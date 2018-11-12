@@ -5,7 +5,7 @@ output:
     theme: cosmo
 ---
 
-![](logo.png)
+![](Webpage/logo.png)
 
 # About the workshop
 

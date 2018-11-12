@@ -1,7 +1,0 @@
----
-title: "Functions in R"
-autho: Andreas Novotny
-date: "2018-11-14"
-output: html_notebook
----
-
