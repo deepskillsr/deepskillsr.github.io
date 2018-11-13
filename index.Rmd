@@ -29,17 +29,17 @@ output:
 
 14.30 - 15.00   Coffee break
 
-15.00 - 17.00   [Good coding practices](MaliesFiles/Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas
+15.00 - 17.00   Git, Website and Presentation ctd.
 
 **Wednesday**
 
 9.00 - 9.30     [Good coding practices](MaliesFiles/Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas
 
-9.30 - 10.30    [Functions and wrappers](AndreasFiles/template_presentation_RaukR/presentation.Rmd) by Andreas, TA: Malie. [Excercise 1 and 2](AndreasFiles/functionsexc.html)
+9.30 - 10.30    [Functions and wrappers](AndreasFiles/template_presentation_RaukR/presentation.html) by Andreas, TA: Malie. [Excercise 1 and 2](AndreasFiles/functionsexc.html)
 
 10.30 - 11.00   Coffee break
 
-11.00 - 12.00   [Rpackages to share data and code](AndreasFiles/template_presentation_RaukR/packages.Rmd) by Andreas, TA: Malie. [Cheat Sheet](AndreasFiles/template_presentation_RaukR/devtools-cheatsheet.pdf)
+11.00 - 12.00   [Rpackages to share data and code](AndreasFiles/template_presentation_RaukR/packages.html) by Andreas, TA: Malie. [Cheat Sheet](AndreasFiles/template_presentation_RaukR/devtools-cheatsheet.pdf)
 
 12.00 - 13.15   Lunch
 
