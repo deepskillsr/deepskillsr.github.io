@@ -55,7 +55,7 @@ output:
 
 11.00 - 11.30   Interactive figures ctd.
 
-11.30 - 12.00   [Feedback sheets fill up](MaliesFiles/Feedback.Rpres)
+11.30 - 12.00   [Feedback sheets fill up](MaliesFiles/Feedback.html)
 
 12.00 - 13.15   Lunch
 
