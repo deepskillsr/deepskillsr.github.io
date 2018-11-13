@@ -375,9 +375,8 @@ What are them?  [http://www.htmlwidgets.org](http://www.htmlwidgets.org)
 
 --
 
-```{r out.width='100%', fig.height=4, eval=require('leaflet')}
-library(leaflet)
-leaflet() %>% addTiles() %>% setView(18.060733, 59.366379, zoom = 15)
+```{r eval=require('DT'), tidy=FALSE}
+DT::datatable( head(iris, 10),  fillContainer = FALSE, options = list(pageLength = 8))
 ```
 
 ---
