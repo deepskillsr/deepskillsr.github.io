@@ -1,0 +1,117 @@
+---
+title: "R Functions Workshop 2"
+author: Andreas Novotny
+date: "2018-11-14"
+output:
+   html_document:
+     theme: yeti
+     toc: true
+     toc_float: true
+---
+
+[BACK TO EXCERCISE 1](functionsexc.html)
+
+
+We will now have a look at a dataset created during a basic ecology course for bachelor students.
+The data describe feeding- and survival rates of Daphnia from two different lakes, during two different temperature conditions. The full code of the students data analysis is pasted below.
+
+[Download the dataset here](https://github.com/deepskillsr/Data_for_Students/blob/master/dafnia.rds)
+
+
+
+
+```{r, results="show"}
+dafnia <- readRDS("dafnia.rds")
+head(dafnia)
+```
+
+
+
+### Feeding Rate
+
+1. Create data summary
+```{r, results="show"}
+SumTable <- aggregate(dafnia$Feeding,
+                      by = list(Lake = dafnia$Lake,
+                                Temp = dafnia$Temp),
+                      FUN = function(x) c(mean = mean(x),
+                                          sd = sd(x),
+                                          n = length(x)))
+head(SumTable)
+```
+
+2. Format the table
+```{r, results="show"}
+SumTable <- do.call(data.frame, SumTable)
+SumTable$se <- SumTable$x.sd / sqrt(SumTable$x.n)
+colnames(SumTable) <- c("Lake", "Temp", "mean", "sd", "n", "se")
+SumTable
+```
+
+3. Plot data
+```{r, results="show"}
+library("ggplot2")
+
+ggplot(data = SumTable, aes(x = factor(Temp),
+                            y = mean, fill = factor(Lake)))+
+  geom_bar(stat = "identity",
+           position = position_dodge(width =0.9)) +
+  geom_errorbar(aes(ymax = SumTable$mean+SumTable$se,
+                    ymin = SumTable$mean-SumTable$se),
+                position = position_dodge(width = 0.9),
+                width = 0.25) +
+  labs(x = "Temperatur (grC)", y = "Ätna Celler") +
+  scale_fill_manual(values=c("royalblue1", "peachpuff1"), name="Sjö")
+```
+
+### Survival Rate
+
+1. Create data summary
+```{r, results="show"}
+SumTable <- aggregate(dafnia$Survival,
+                      by = list(Lake = dafnia$Lake,
+                                Temp = dafnia$Temp),
+                      FUN = function(x) c(mean = mean(x),
+                                          sd = sd(x),
+                                          n = length(x)))
+head(SumTable)
+```
+
+2. Format the table
+```{r, results="show"}
+SumTable <- do.call(data.frame, SumTable)
+SumTable$se <- SumTable$x.sd / sqrt(SumTable$x.n)
+colnames(SumTable) <- c("Lake", "Temp", "mean", "sd", "n", "se")
+SumTable
+```
+
+3. Plot data
+```{r, results="show"}
+library("ggplot2")
+
+ggplot(data = SumTable, aes(x = factor(Temp),
+                            y = mean, fill = factor(Lake)))+
+  geom_bar(stat = "identity",
+           position = position_dodge(width =0.9)) +
+  geom_errorbar(aes(ymax = SumTable$mean+SumTable$se,
+                    ymin = SumTable$mean-SumTable$se),
+                position = position_dodge(width = 0.9),
+                width = 0.25) +
+  labs(x = "Temperatur (grC)", y = "Överlevande") +
+  scale_fill_manual(values=c("royalblue1", "peachpuff1"), name="Sjö")
+```
+
+
+# 1. Make code nicer by structuring the code in functions.
+
+As you can see, the pretty long piece of code is repeated two times. Is it possible to restructure the code in functions, to avoid repetition, and make the code smaller?
+
+
+
+# 2. Custumize the function
+
+As a last step, try to generalize this function as much as you can. Can you make a function,
+or a set of function that creates any kind of bar plot in ggplot? Lets see how far we can go!
+
+
+[BACK TO EXCERCISE 1](functionsexc.html)

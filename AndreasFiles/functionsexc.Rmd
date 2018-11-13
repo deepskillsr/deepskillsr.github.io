@@ -1,0 +1,295 @@
+---
+title: "R Functions Workshop 1"
+author: Andreas Novotny
+date: "2018-11-14"
+output:
+   html_document:
+     theme: yeti
+     toc: true
+     toc_float: true
+     number_sections: true
+     code_folding: "hide"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      results = "hide")
+```
+
+This exercise will guide you through how to write your own R functions and how to use it.
+
+After each assignment there is a hidden code chunk, containing clues for how to solve the problem. Start by trying on your own. If you are stuck, click on the "code" button.
+
+
+# "Hello R"
+
+We will now start by writing our very first function, and then executing it.
+
+[CONTINUE TO ADVANCED EXCERCISE 2](functionsexc2.html)
+
+1. Create a function (without any input) called "helloR" that prints "Hello World" when executed.
+
+**Create function**
+
+*Hint:*
+```{r}
+# Remember the basic syntax for designing a function?
+# If not, repeat this:
+
+name_of_function <- function() {
+  
+}
+```
+
+*Solution:*
+
+```{r}
+helloR <- function() {
+  
+  print("Hello World")
+
+}
+```
+
+
+**Execute function**
+
+*solution:*
+
+```{r}
+helloR()
+```
+
+
+2. Well done, not that tricky right? Now lets ad some option to the function. If we provide a name as input, perhaps it can print "Hello NNN" ? Lets try!
+
+
+*Hint:*
+
+```{r}
+# Remember where we shoud put the input?
+
+name_of_function <- function(input) {
+  
+}
+```
+
+*Hint:*
+
+```{r}
+# Ahaaa, how to combine Hello and XXX?
+# Perhaps this will give you a clue:
+
+name <- "Andreas"
+print(paste("Hello", name))
+```
+
+*Solution:*
+
+```{r}
+#Define function
+
+helloR <- function(name) {
+  
+  print(paste("Hello", name))
+
+}
+
+# Execute function
+
+helloR("Andreas")
+helloR("Malie")
+```
+
+3. Cool!!! We made it!!! Now we have a full function with input, and output. But, as we are going,
+lets define a default input, if no other input is given. Lets put your own name if no other input is given.
+
+*Hint:*
+```{r}
+# Remember how to define default inputs, no?
+
+name_of_function <- function(input=Default) {
+  
+}
+```
+
+*Solution:*
+
+```{r}
+#Define function
+
+helloR <- function(name="Andreas") {
+  
+  print(paste("Hello", name))
+}
+
+# Execute function - try some different options:
+
+helloR()
+helloR("Andreas")
+helloR("Malie")
+```
+
+
+**Nice! We are done!**
+
+Now lets see if any of your mates need help - and the presentation will continue shortly!
+
+
+
+
+
+# Normalization function
+
+Usually, we dont want R to just print things to the screen. We usually want to store the output as a new variable, that we can later use for other calculations.
+
+1. Now, create a function that takes as input a vector of values (i.e a column from a data.frame) and returns a a vector where all the values has been normalized towards the mean (xi = xi/mean(x)). We can use the "Iris" dataset as example. The function can be called "normalizeR"
+
+*Hint 1:*
+
+```{r}
+# Lets repeat the syntax:
+
+function_name <- function(input=default) {
+  
+  output <- "make something out of input"
+  
+  return(output)
+}
+```
+
+*Hint 2:*
+
+```{r}
+# What should we do with the input?
+normalized <- iris$Sepal.Length / mean(iris$Sepal.Length)
+```
+
+*Solution:*
+
+```{r, eval= FALSE}
+#Now, just put it together:
+
+normalizeR <- function(inputvector) {
+  
+  normalized <- inputvector/mean(inputvector)
+  
+  return(normalized)
+}
+
+# Lets try the function out:
+
+normalizeR(iris$Sepal.Length)
+# Thets compare the output
+boxplot(iris$Sepal.Length)
+boxplot(normalizeR(iris$Sepal.Length))
+```
+
+
+2. Now, we would like to communicate a bit with the user. What happens if the user do not provide a vector? Make the function stop and provide an error message.
+
+*Hint 1:*
+
+```{r, eval=FALSE}
+# The stop function
+stop("Write an error message here")
+```
+
+*Hint 2:*
+```{r}
+# Do you remember the ifelse statements?
+
+if (class(iris$Sepal.Length) != "numeric") {
+  "Take some action"
+}
+
+```
+
+
+*Solution:*
+
+```{r, eval= FALSE}
+#Pay attention to the use of the braces and indentations:
+
+normalizeR <- function(inputvector) {
+  
+  if (class(inputvector) != "numeric") {
+    stop("Input is not a numeric vector")
+    }
+  
+  normalized <- inputvector/mean(inputvector)
+  
+  return(normalized)
+}
+
+
+# Try your function:
+
+normalizeR(iris$Sepal.Length)
+normalizeR("Johansson")
+```
+
+
+# Wrapper functions
+
+Have you not always been annoyed by the default black color in Rs plot functions? Soo boring! Lets hot it up. Create a function that per default plots anything in red colors. Call the function redplot
+
+
+*Hint:*
+
+```{r, eval=FALSE}
+#This is how a plot would look like:
+
+plot(x=iris$Sepal.Length, y=iris$Sepal.Width, col="red")
+```
+
+*Solution:*
+
+```{r}
+redplot <- function(x, y, col="red") {
+  plot(x=x, y=y, col=col)
+}
+```
+
+
+But hey! What if the user wants to add i.e. a title on the x-axis? Leave roome in the formula for other arguments in the plot function:
+
+*Solution:*
+
+```{r, eval=FALSE}
+redplot <- function(x, y, col="red", ...) {
+  plot(x=x, y=y, col=col, ...)
+}
+
+
+# Ore make it eaven nicer:
+
+redplot <- function(..., col="red") {
+  plot(..., col=col)
+}
+
+# Try it out
+
+redplot(x=iris$Sepal.Length, y=iris$Sepal.Width)
+redplot(x=iris$Sepal.Length, y=iris$Sepal.Width, xlab="Sepal Length", ylab="Sepal Width")
+```
+
+Its quite marvelous, is it not? See if you can use your function for other purposes.
+
+
+[CONTINUE TO ADVANCED EXCERCISE 2](functionsexc2.html)
+
+
+# Session Info
+
+These packages were used during this session:
+
+```{r, results="show"}
+sessionInfo()
+```
+
+
+
+
+
+

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Packages in R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Andreas Novotny" />
+    <meta name="date" content="2018-11-14" />
+    <meta name="keywords" content="r, RaukR, markdown" />
+    <link rel="stylesheet" href="presentation_noLogo.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Packages in R
+## Developing skills in R, DEEP, SU
+### Andreas Novotny
+### 14 November 2018
+
+---
+
+name: intro
+class: spaced 
+
+
+
+
+
+
+## What is an R package?
+
+![](package.jpg)
+---
+## What is an R package?
+
+* A directory containing a specific file structure
+
+* A way of transferring functions, data and code
+
+* An efficient, well documented analysis or method
+
+![](package.jpg)
+
+---
+
+## What is an R package?
+
+* Efficient
+
+* Improvable
+
+* **Reproducible**
+
+![](package.jpg)
+
+---
+
+![](devtools/Picture1.png)
+
+[LINK TO THE CHEAT SHEET](devtools-cheatsheet.pdf)
+---
+
+
+![](devtools/Picture2.png)
+
+---
+## Initialize an r package in Rstudio:
+
+1. File - New project
+2. New Directory
+3. New R package
+4. Add name and description
+5. OK
+
+## Make connection to github
+
+1. Open git-hub:
+2. New repository
+3. Follow instructions from git-hub
+
+---
+![](devtools/Picture5.png)
+
+---
+![](devtools/Picture4.png)
+---
+
+![](devtools/Picture3.png)
+
+
+
+---
+![](devtools/Picture6.png)
+---
+![](devtools/Picture8.png)
+
+
+
+
+---
+
+![](devtools/Picture7.png)
+---
+
+## README.md file
+
+This is what the users will see when the enter Git Hub:
+
+* Short (or long) description of the package.
+
+* How to install the package?
+
+* What are the dependencies of the package?
+
+---
+## Make your packege available on GitHub!
+
+* git add *
+
+* git commit -m 'I just wrote a cool package.'
+
+* git push
+
+---
+
+## Install others packages from github
+
+
+```r
+devtools::install_github("repository")
+```
+
+
+
+---
+name: end-slide
+class: end-slide
+
+# Thank you
+    </textarea>
+<script src="remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "4:3",
+"highlightLanguage": "r",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "deepRskills 2018 . %current%/%total%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions in R</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Andreas Novotny" />
+    <meta name="date" content="2018-11-14" />
+    <meta name="keywords" content="r, RaukR, markdown" />
+    <link rel="stylesheet" href="presentation_noLogo.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Functions in R
+## Developing skills in R, DEEP, SU
+### Andreas Novotny
+### 14 November 2018
+
+---
+
+name: intro
+class: spaced 
+
+
+
+
+
+
+## Do you use functions when coding?
+
+
+
+```r
+sqrt(4)
+```
+
+```
+## [1] 2
+```
+
+
+```r
+print("Hello World")
+```
+
+```
+## [1] "Hello World"
+```
+
+
+```r
+data.frame(x=numeric(), y=factor())
+```
+
+```
+## [1] x y
+## &lt;0 rows&gt; (or 0-length row.names)
+```
+
+```r
+c(1,2,3,4,5)
+```
+
+```
+## [1] 1 2 3 4 5
+```
+
+---
+name: General structure
+
+## What is needed?
+
+* Input: X1, X2, X3, X3
+* Function: f()
+* Output: y &lt;-
+
+![](function.png)
+
+
+
+---
+name: Different types
+
+## What is needed?
+
+* output &lt;- function(X1, ..., Xn)
+
+
+```r
+output &lt;- sqrt(2)
+```
+
+
+![](function.png)
+---
+name: What goes in?
+
+## What goes into the function?
+
+### Who decides what can go in?
+### Who descides what comes out?
+
+
+![](function.png)
+
+???
+
+YOU Decide!
+
+---
+name: why?
+
+
+## Why do we need to know how to write our own functions?
+
+* Only possible solution?
+
+* Writing your own package?
+
+* Easier to interpret "Help" files.
+
+* Good coding practice - Makes code readable
+
+---
+name: syntax1
+
+## SYNTAX: How are functions defined?
+
+* Definition
+
+
+
+```r
+name_of_function &lt;- function(input1, input2, inputn) {
+  
+  "Do something"
+  
+}
+```
+
+---
+name: example1
+
+## SYNTAX: How are functions defined?
+
+* Example
+
+
+```r
+sum_of_three &lt;- function(a, b, c) {
+  
+  print( a + b + c)
+  
+}
+```
+
+
+```r
+sum_of_three(a=3,b=4,c=5)
+```
+
+```
+## [1] 12
+```
+
+
+---
+
+## SYNTAX: How are functions defined?
+
+* Example
+* Default inputs
+
+
+```r
+sum_of_three &lt;- function(a=3, b=3, c=3) {
+  
+  print( a + b + c)
+  
+}
+```
+
+
+```r
+sum_of_three(a=3)
+```
+
+```
+## [1] 9
+```
+---
+name: exc1
+
+## First excercise
+
+
+[CONTINUE TO EXCERCISES](../functionsexc.html)
+
+
+---
+## Return objects, not printed to the console
+
+
+
+```r
+name_of_function &lt;- function(input) {
+  
+  output &lt;- input
+  
+  return(output)
+  
+}
+```
+
+
+
+
+---
+## Error message
+
+
+
+```r
+normalizeR &lt;- function(inputvector) {
+  
+  if (class(inputvector) != "numeric") {
+    stop("Input is not a numeric vector")
+    }
+  
+  normalized &lt;- inputvector/mean(inputvector)
+  
+  return(normalized)
+}
+```
+
+---
+## Wrapper functions
+
+* Change default settings of others functions
+
+* Combine many functions in one
+
+
+```r
+mean_noNA &lt;- function(x) {
+  
+    return(mean(x, na.rm = T))
+  
+}
+```
+
+---
+## Wrapper functions
+
+* Don't forget to add flexibility to the function
+
+
+```r
+mean_noNA &lt;- function(x) {
+    return(mean(x, na.rm = TRUE))
+}
+```
+
+
+```r
+mean_noNA &lt;- function(x, na.rm= TRUE) {
+    return(mean(x, na.rm = na.rm))
+}
+```
+
+
+```r
+mean_noNA &lt;- function(x, na.rm= TRUE, ...) {
+    return(mean(x, na.rm = na.rm, ...))
+}
+```
+
+
+---
+## Name spaces
+
+* Functions uses their own namespaces
+* Objects created inside the function cannot be available outside the function:
+
+
+```r
+x &lt;- 10
+
+helloR &lt;- function() {
+    
+    x &lt;- 15
+    print("Hello World")
+
+}
+```
+
+
+```r
+helloR()
+```
+
+```
+## [1] "Hello World"
+```
+
+
+```r
+print(x)
+```
+
+```
+## [1] 10
+```
+---
+## Name spaces
+
+* Functions uses their own namespaces
+* Objects created inside the function cannot be available outside the function
+*Object created outside the function can eventually be accessed from inside. AVOID THIS!
+
+
+
+```r
+x &lt;- 10
+
+helloR &lt;- function() {
+    
+    print(x)
+    print("Hello World")
+
+}
+
+helloR()
+```
+
+```
+## [1] 10
+## [1] "Hello World"
+```
+---
+
+## Now - more excercices:
+
+[CONTINUE TO EXCERCISES](../functionsexc.html)
+
+---
+name: report
+
+## Session Info
+
+
+```r
+R.version
+```
+
+```
+##                _                           
+## platform       x86_64-pc-linux-gnu         
+## arch           x86_64                      
+## os             linux-gnu                   
+## system         x86_64, linux-gnu           
+## status                                     
+## major          3                           
+## minor          5.1                         
+## year           2018                        
+## month          07                          
+## day            02                          
+## svn rev        74947                       
+## language       R                           
+## version.string R version 3.5.1 (2018-07-02)
+## nickname       Feather Spray
+```
+
+---
+name: end-slide
+class: end-slide
+
+# Thank you
+    </textarea>
+<script src="remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"ratio": "4:3",
+"highlightLanguage": "r",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": "deepRskills 2018 . %current%/%total%"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function() {
+  var d = document, s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})();</script>
+
+<script>
+(function() {
+  var i, text, code, codes = document.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+})();
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

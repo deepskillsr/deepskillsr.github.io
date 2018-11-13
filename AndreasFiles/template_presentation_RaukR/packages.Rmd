@@ -1,0 +1,160 @@
+---
+title: "Packages in R"
+subtitle: "Developing skills in R, DEEP, SU"
+author: "Andreas Novotny"
+date: "14 November 2018"
+institute: NBIS, SciLifeLab
+keywords: r, RaukR, markdown
+output: 
+  xaringan::moon_reader:
+    
+    encoding: 'UTF-8'
+    self_contained: false
+    chakra: 'remark-latest.min.js'
+    css: 'presentation_noLogo.css'
+    lib_dir: libs
+    nature:
+      ratio: '4:3'
+      highlightLanguage: r
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "deepRskills 2018 . %current%/%total%"
+
+---
+name: intro
+class: spaced 
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE,results='hide'}
+# run setup code
+
+# load libraries ---------------------------------------------------------------
+library(knitr) # runs pandoc
+library(bookdown) # for markdown
+library(captioner) # for table and figure captions
+
+suppressPackageStartupMessages(library(tidyverse))
+
+# knitr options ----------------------------------------------------------------
+
+knitr::opts_knit$set(progress=TRUE,verbose=TRUE)
+knitr::opts_chunk$set(dev="CairoPNG",results="hold",fig.show="hold",fig.align="left",echo=TRUE,warning=FALSE,message=FALSE)
+```
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE}
+# load the packages you need
+
+#library(tidyverse)
+#library(ggplot2) # static graphics
+```
+
+
+## What is an R package?
+
+![](package.jpg)
+---
+## What is an R package?
+
+* A directory containing a specific file structure
+
+* A way of transferring functions, data and code
+
+* An efficient, well documented analysis or method
+
+![](package.jpg)
+
+---
+
+## What is an R package?
+
+* Efficient
+
+* Improvable
+
+* **Reproducible**
+
+![](package.jpg)
+
+---
+
+![](devtools/Picture1.png)
+
+[LINK TO THE CHEAT SHEET](devtools-cheatsheet.pdf)
+---
+
+
+![](devtools/Picture2.png)
+
+---
+## Initialize an r package in Rstudio:
+
+1. File - New project
+2. New Directory
+3. New R package
+4. Add name and description
+5. OK
+
+## Make connection to github
+
+1. Open git-hub:
+2. New repository
+3. Follow instructions from git-hub
+
+---
+![](devtools/Picture5.png)
+
+---
+![](devtools/Picture4.png)
+---
+
+![](devtools/Picture3.png)
+
+
+
+---
+![](devtools/Picture6.png)
+---
+![](devtools/Picture8.png)
+
+
+
+
+---
+
+![](devtools/Picture7.png)
+---
+
+## README.md file
+
+This is what the users will see when the enter Git Hub:
+
+* Short (or long) description of the package.
+
+* How to install the package?
+
+* What are the dependencies of the package?
+
+---
+## Make your packege available on GitHub!
+
+* git add *
+
+* git commit -m 'I just wrote a cool package.'
+
+* git push
+
+---
+
+## Install others packages from github
+
+```{r, eval=FALSE}
+devtools::install_github("repository")
+```
+
+
+
+---
+name: end-slide
+class: end-slide
+
+# Thank you
