@@ -39,9 +39,9 @@ output:
 
 11.00 - 12.00   Rpackages to share data and code by Andreas, TA: Malie
 
-12.00 - 13.00   Lunch
+12.00 - 13.15   Lunch
 
-13.00 - 14.30   [Maps in R](MaliesFiles/Maps_in_R_MLT.html) by Malie, TA: Julie
+13.15 - 14.30   [Maps in R](MaliesFiles/Maps_in_R_MLT.html) by Malie, TA: Julie
 
 14.30 - 15.00   Coffee break
 
@@ -57,9 +57,9 @@ output:
 
 11.30 - 12.00   [Feedback sheets fill up](MaliesFiles/Feedback.Rpres)
 
-12.00 - 13.00   Lunch
+12.00 - 13.15   Lunch
 
-13.00 - 14.30   Q&A, Finishing excercis, backup time, Malie, Andreas, Marco and Elsa.
+13.15 - 14.30   Q&A, Finishing excercis, backup time, Malie, Andreas, Marco and Elsa.
 
 14.30 - inf.    Coffee
 
