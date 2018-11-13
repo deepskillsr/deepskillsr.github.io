@@ -58,7 +58,7 @@ knitr::opts_chunk$set(dev="CairoPNG",results="hold",fig.show="hold",fig.align="l
 .center[<img src="good_coding_figures/DonaldKnuth.jpg" style="max-width:200px;">]
 
 ???
-Donald E. Knuth: Professor Emeritus at Stanford University. In 1962, he embarked on a monumental seven-volume work titled The Art of Computer Programming, which now occupies him full time. The four volumes released to date are available in nine languages with over one million copies printed. An R script isn’t just telling the computer how to perform calculations on your data. It is also explaining your work to other human beings.
+Donald E. Knuth: Professor Emeritus at Stanford University. In 1962, he embarked on a monumental seven-volume work titled The Art of Computer Programming, which now occupies him full time. The four volumes released to date are available in nine languages with over one million copies printed. An R script isn???t just telling the computer how to perform calculations on your data. It is also explaining your work to other human beings.
 
 ---
 name: intro1
@@ -448,7 +448,7 @@ The tidyverse is a collection of R packages designed for data science. The tidyv
 - purrr: A functional programming toolkit for R
 - forcats: Tools for working with categorical variables (factors)
 
-.center[<img src="good_coding_figures/RforDataScience.png" style="max-width:150px;">
+.center[<img src="good_coding_figures/Rbook.jpeg" style="max-width:150px;">
 <img src="good_coding_figures/HadleyWickham.jpg" style="max-width:150px;">
 <img src="good_coding_figures/CharlotteWickham.jpg" style="max-width:150px;">]
 
@@ -473,8 +473,8 @@ The tidyverse is a collection of R packages designed for data science. The tidyv
 .center[<img src="good_coding_figures/pipe.jpg" alt="pipe" style="max-width:300px;">]
 
 ???
-René François Ghislain Magritte was a Belgian surrealist painter. Pour ce tableau qui suscita bien des questionnements, Magritte s’est justifié :
-« La fameuse pipe, me l’a-t-on assez reprochée ! Et pourtant, pouvez-vous la bourrer ma pipe ? Non, n’est-ce pas, elle n’est qu’une représentation. Donc si j’avais écrit sous mon tableau « ceci est une pipe », j’aurais menti ! » C.Q.F.D.
+Ren?? Fran??ois Ghislain Magritte was a Belgian surrealist painter. Pour ce tableau qui suscita bien des questionnements, Magritte s???est justifi?? :
+?? La fameuse pipe, me l???a-t-on assez reproch??e ! Et pourtant, pouvez-vous la bourrer ma pipe ? Non, n???est-ce pas, elle n???est qu???une repr??sentation. Donc si j???avais ??crit sous mon tableau ?? ceci est une pipe ??, j???aurais menti ! ?? C.Q.F.D.
 
 ---
 name: pipe1
