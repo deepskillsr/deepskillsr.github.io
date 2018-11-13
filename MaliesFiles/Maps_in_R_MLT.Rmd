@@ -22,6 +22,12 @@ output:
 editor_options: 
   chunk_output_type: console
 ---
+
+```{r, echo=FALSE}
+library(tidyverse)
+```
+
+
 ## Creating maps in R
 
 - Spatial visualization with ggplot2
@@ -87,7 +93,7 @@ print (mapWorld)
 Coral bleaching data from ReefBase http://www.reefbase.org
 ```{r, coral_data}
 # Upload data
-datCoral <- read.csv("./Data/CoralBleachingData.csv", row.names = 1)
+datCoral <- read.csv("https://github.com/deepskillsr/Data_for_Students/blob/master/CoralBleachingData.csv", row.names = 1)
 # head (datCoral) #sanity check
 # str (datCoral)
 ```
@@ -269,6 +275,9 @@ Get the updated version of ggmap:
 library (ggmap)
 library (tidyverse)
 ```
+
+
+
 
 ???
 Devtools: (developper tools) providing R functions that simplify many common tasks for package developping
