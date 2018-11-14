@@ -33,7 +33,7 @@ output:
 
 **Wednesday**
 
-9.00 - 9.30     [Good coding practices](MaliesFiles/Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas
+9.00 - 9.30     [Good coding practices](MaliesFiles/Pres_good_coding_practices_MLT.html) by Malie, TA: Andreas [magrittr excercise](magrittrex.html)
 
 9.30 - 10.30    [Functions and wrappers](AndreasFiles/template_presentation_RaukR/presentation.html) by Andreas, TA: Malie. [Excercise 1 and 2](AndreasFiles/functionsexc.html)
 

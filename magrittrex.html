@@ -10,15 +10,19 @@
 
 
 
+<meta name="date" content="2018-11-14" />
 
-<title>index.utf8</title>
+<title>Magrittr Workshop</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -105,34 +109,34 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 51px;
+  padding-top: 45px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 50px;
+  margin-top: -50px;
 }
 
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 50px;
+  margin-top: -50px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 50px;
+  margin-top: -50px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 50px;
+  margin-top: -50px;
 }
 .section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 50px;
+  margin-top: -50px;
 }
 .section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 50px;
+  margin-top: -50px;
 }
 </style>
 
@@ -167,6 +171,101 @@ $(document).ready(function () {
 <!-- code folding -->
 
 
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -209,47 +308,46 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Magrittr Workshop</h1>
+<h4 class="date"><em>2018-11-14</em></h4>
 
 </div>
 
 
-<p><img src="Webpage/logo.png" /></p>
-<div id="welcome-to-the-workshop-hompage" class="section level1">
-<h1>WELCOME TO THE WORKSHOP HOMPAGE!</h1>
-<div id="schedule-and-course-materials" class="section level2">
-<h2>Schedule and course materials</h2>
-<p><strong>Tuesday</strong></p>
-<p>9.00 - 9.30 Introduction to the workshop by Malie</p>
-<p>9.30 - 10.30 <a href="ElsasFiles/DevelopingSkillsInR_ReprResearch_ElsaF.html">Reproducible research with RMarkdown</a> by Elsa, TA: Julie, Malie <a href="ElsasFiles/ExampleReport.html">Example report</a></p>
-<p>10.30 - 11:00 Coffee break</p>
-<p>11.00 - 12.00 RMarkdown ctd.</p>
-<p>12.00 - 13.00 Lunch</p>
-<p>13.00 - 14.30 <a href="MarcosFiles/GitWebRma.html">Git, Website and Presentation in RMarkdown</a> by Marco, TA: Julie, Malie</p>
-<p>14.30 - 15.00 Coffee break</p>
-<p>15.00 - 17.00 Git, Website and Presentation ctd.</p>
-<p><strong>Wednesday</strong></p>
-<p>9.00 - 9.30 <a href="MaliesFiles/Pres_good_coding_practices_MLT.html">Good coding practices</a> by Malie, TA: Andreas <a href="magrittrex.html">magrittr excercise</a></p>
-<p>9.30 - 10.30 <a href="AndreasFiles/template_presentation_RaukR/presentation.html">Functions and wrappers</a> by Andreas, TA: Malie. <a href="AndreasFiles/functionsexc.html">Excercise 1 and 2</a></p>
-<p>10.30 - 11.00 Coffee break</p>
-<p>11.00 - 12.00 <a href="AndreasFiles/template_presentation_RaukR/packages.html">Rpackages to share data and code</a> by Andreas, TA: Malie. <a href="AndreasFiles/template_presentation_RaukR/devtools-cheatsheet.pdf">Cheat Sheet</a></p>
-<p>12.00 - 13.15 Lunch</p>
-<p>13.15 - 14.30 <a href="MaliesFiles/Maps_in_R_MLT.html">Maps in R</a> by Malie, TA: Julie</p>
-<p>14.30 - 15.00 Coffee break</p>
-<p>15.00 - 16.15 Ggmap ctd.</p>
-<p><strong>Thursday</strong></p>
-<p>9.00 - 10.30 Interactive figures (plotly, shiny etc.) by Andreas, TA: Julie and Malie</p>
-<p>10.30 - 11.00 Coffee break</p>
-<p>11.00 - 11.30 Interactive figures ctd.</p>
-<p>11.30 - 12.00 <a href="MaliesFiles/Feedback.html">Feedback sheets fill up</a></p>
-<p>12.00 - 13.15 Lunch</p>
-<p>13.15 - 14.30 Q&amp;A, Finishing excercis, backup time, Malie, Andreas, Marco and Elsa.</p>
-<p>14.30 - inf. Coffee</p>
-<p><strong>Everything on this website was coded in R.</strong> <a href="https://github.com/deepskillsr/deepskillsr.github.io"><strong>Check out how</strong></a></p>
+<pre class="r"><code>library(magrittr)
+library(ggplot2) # or library(tidyverse)</code></pre>
+<p>Start by having a look at the CO2 dataset:</p>
+<pre class="r"><code>head(CO2)</code></pre>
+<p>What we would like to do now, is to make a scatter plot of he data. But we only want to plot plants from Quebec, with “nonchilled” treatment.</p>
+<p>Basically we want to: * Take our CO2 dataset -</p>
+<ul>
+<li><p>Subset the Quebec plant</p></li>
+<li><p>Subset the nonchilled treatment</p></li>
+<li><p>Plot the data</p></li>
+</ul>
+<p>Written in oneline this would be written:</p>
+<pre class="r"><code>ggplot(subset(subset(CO2, Type==&quot;Quebec&quot;), Treatment==&quot;nonchilled&quot;), aes(x=conc, y=uptake)) +
+         geom_point()</code></pre>
+<p><img src="magrittrex_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The code can be improved by:</p>
+<pre class="r"><code>Quebec_CO2 &lt;- subset(CO2, Type==&quot;Quebec&quot;)
+nonchilled_Quebec_CO2 &lt;- subset(Quebec_CO2, Treatment==&quot;nonchilled&quot;)
+ggplot(nonchilled_Quebec_CO2, aes(x=conc, y=uptake)) +
+  geom_point()</code></pre>
+<p><img src="magrittrex_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>But in this case, we need to create lots of intermediates. Try to use pipes %&gt;% to create the same plot with one single piece of code.</p>
+<p>Remember what we want to achieve:</p>
+<ul>
+<li><p>Take our CO2 dataset -</p></li>
+<li><p>Subset the Quebec plant</p></li>
+<li><p>Subset the nonchilled treatment</p></li>
+<li><p>Plot the data</p></li>
+</ul>
+
+
+
 </div>
 </div>
-
-
-
 
 </div>
 

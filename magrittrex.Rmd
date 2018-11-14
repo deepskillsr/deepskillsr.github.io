@@ -1,0 +1,89 @@
+---
+title: "Magrittr Workshop"
+date: "2018-11-14"
+output:
+   html_document:
+     theme: yeti
+     toc: true
+     toc_float: true
+     number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      results = "hide")
+```
+
+
+
+```{r}
+library(magrittr)
+library(ggplot2) # or library(tidyverse)
+```
+
+
+Start by having a look at the CO2 dataset:
+
+```{r}
+head(CO2)
+```
+
+What we would like to do now, is to make a scatter plot of he data.
+But we only want to plot plants from Quebec, with "nonchilled" treatment.
+
+Basically we want to:
+* Take our CO2 dataset -
+
+* Subset the Quebec plant
+
+* Subset the nonchilled treatment
+
+* Plot the data
+
+
+Written in oneline this would be written:
+
+```{r}
+ggplot(subset(subset(CO2, Type=="Quebec"), Treatment=="nonchilled"), aes(x=conc, y=uptake)) +
+         geom_point()
+
+```
+
+
+The code can be improved by:
+
+```{r}
+
+Quebec_CO2 <- subset(CO2, Type=="Quebec")
+nonchilled_Quebec_CO2 <- subset(Quebec_CO2, Treatment=="nonchilled")
+ggplot(nonchilled_Quebec_CO2, aes(x=conc, y=uptake)) +
+  geom_point()
+
+```
+
+
+But in this case, we need to create lots of intermediates.
+Try to use pipes %>%  to create the same plot with one single piece of code.
+
+Remember what we want to achieve:
+
+* Take our CO2 dataset -
+
+* Subset the Quebec plant
+
+* Subset the nonchilled treatment
+
+* Plot the data
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+library(magrittr)
+library(ggplot2)
+CO2 %>%
+  subset(Type=="Quebec") %>% 
+  subset(Treatment=="nonchilled") %>% 
+  ggplot(aes(x=conc, y=uptake)) +
+  geom_point()
+```
+
