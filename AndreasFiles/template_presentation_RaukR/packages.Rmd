@@ -1,5 +1,5 @@
 ---
-title: "Packages in R"
+title: "Sharing data and code in R"
 subtitle: "Developing skills in R, DEEP, SU"
 author: "Andreas Novotny"
 date: "14 November 2018"
@@ -48,6 +48,16 @@ knitr::opts_chunk$set(dev="CairoPNG",results="hold",fig.show="hold",fig.align="l
 #library(ggplot2) # static graphics
 ```
 
+## Sharing data, code and analysis
+* Packages (data and code)
+* Interactive plots
+
+![](interactive.jpg)
+
+
+
+
+---
 
 ## What is an R package?
 
@@ -151,7 +161,72 @@ This is what the users will see when the enter Git Hub:
 devtools::install_github("repository")
 ```
 
+---
 
+## Other resources
+
+[R Packages book](http://r-pkgs.had.co.nz)
+
+
+![](http://r-pkgs.had.co.nz/cover.png)
+
+
+
+---
+
+## Interactive plots
+
+![](interactive2.jpg)
+---
+## Plotly
+
+The function ggplotly converts a ggplot object to an HTML widget
+
+```{r}
+library(tidyverse)
+library(plotly)
+
+
+```
+---
+## Plotly
+
+
+```{r}
+plot <- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length)) +
+  geom_point(aes(color=Species))
+plot
+```
+---
+## Plotly
+
+
+```{r}
+
+plot <- ggplot(iris, aes(x=Sepal.Length, y=Petal.Length)) +
+  geom_point(aes(color=Species))
+ggplotly(plot)
+```
+
+---
+## Flexdashboard
+
+[Example flexdash](https://walkerke.shinyapps.io/neighborhood_diversity/)
+
+![](flexdash.jpg)
+---
+## Resources:
+
+[FlexDashboard](https://rmarkdown.rstudio.com/flexdashboard/)
+
+[Shiny](https://shiny.rstudio.com/)
+
+[Plotly](https://plot.ly/)
+
+---
+```{r}
+R.version
+```
 
 ---
 name: end-slide

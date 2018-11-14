@@ -51,11 +51,11 @@ output:
 
 **Thursday**
 
-9.00 - 10.30    Interactive figures (plotly, shiny etc.) by Andreas, TA: Julie and Malie
+9.00 - 10.30    [Rpackages to share data and code](AndreasFiles/template_presentation_RaukR/packages.html) by Andreas, TA: Malie. [Cheat Sheet](AndreasFiles/template_presentation_RaukR/devtools-cheatsheet.pdf)
 
 10.30 - 11.00   Coffee break
 
-11.00 - 11.30   Interactive figures ctd.
+11.00 - 11.30   Interactive figures (plotly, shiny etc.) by Andreas, TA: Julie and Malie
 
 11.30 - 12.00   [Feedback sheets fill up](MaliesFiles/Feedback.html)
 
