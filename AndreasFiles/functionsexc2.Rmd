@@ -115,3 +115,56 @@ or a set of function that creates any kind of bar plot in ggplot? Lets see how f
 
 
 [BACK TO EXCERCISE 1](functionsexc.html)
+
+
+
+
+
+# 3. Possible solution:
+
+
+```{r}
+sumtable <- function(data = dafnia, y = "Feeding", x1 = "Lake", x2 = "Temp") {
+  SumTable <- aggregate(data[[y]],
+                      by = list(x1 = data[[x1]],
+                                x2 = data[[x2]]),
+                      FUN = function(x) c(mean = mean(x),
+                                          sd = sd(x),
+                                          n = length(x)))
+  
+  SumTable <- do.call(data.frame, SumTable)
+  SumTable$se <- SumTable$x.sd / sqrt(SumTable$x.n)
+  colnames(SumTable) <- c(x1, x2, "mean", "sd", "n", "se")
+  return(SumTable)
+  
+}
+```
+
+
+```{r}
+plotbar <- function(data = dafnia, y = "Feeding", x = "Lake", fill = "Temp", ...) {
+  require("ggplot2")
+  data <-sumtable(data = data, y = y, x1 = x, x2 = fill)
+  plot <- ggplot(data, aes(x = factor(data[[x]]),
+                              y = mean, fill = factor(data[[fill]])))+
+    geom_bar(stat = "identity",
+             position = position_dodge(width =0.9), ...) +
+    geom_errorbar(aes(ymax = data$mean+data$se,
+                      ymin = data$mean-data$se),
+                  position = position_dodge(width = 0.9),
+                  width = 0.25) +
+    labs(x = x, y = y) +
+    scale_fill_manual(values = c("royalblue1", "peachpuff1"), name = fill)
+    
+  #return(data)
+  return(plot)
+}
+```
+
+
+```{r}
+plotbar(data = dafnia, y = "Feeding")
+plotbar(data = dafnia, y = "Survival")
+```
+
+
