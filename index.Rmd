@@ -66,6 +66,8 @@ output:
 14.30 - inf.    Coffee
 
 
+[Link to RaukR course page for more materials](https://nbisweden.github.io/workshop-RaukR-1806/programme/)
+
 **Everything on this website was coded in R.** [**Check out how**](https://github.com/deepskillsr/deepskillsr.github.io)
 
 
